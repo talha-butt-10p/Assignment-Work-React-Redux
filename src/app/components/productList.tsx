@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { addCart } from "../store/slices/cart";
 
+
 const ProductList = () => {
 
     const[name, setName] = useState("");
@@ -16,18 +17,14 @@ const ProductList = () => {
 
     return(
         <div>
-            {/* <div className="grid grid-cols-4 ap-3 bg-green-200">
-                <input placeholder="Product Name" type="text" className="p-3 bg-green-300 text-lg rounded-md" />
-                <input placeholder="Product Name" type="text" className="p-3 bg-green-300 text-lg rounded-md" />
-                <input placeholder="Product Name" type="text" className="p-3 bg-green-300 text-lg rounded-md" />
-                <button>Add Item</button>
-            </div> */}
+            
             <h1>Product List</h1>
             <div className="grid grid-cols-3 gap-4">
                 {
                     products.map((item,i)=>{
                         return(
                             <div className="w-350 border rounded-md bg-slate-300 p-4" key={i}>
+                                
                                 <h3>Name : {item.name}</h3>
                                 <p>Colour: {item.colour}</p>
                                 <p>Price: {item.price}</p>
