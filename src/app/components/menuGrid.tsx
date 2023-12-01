@@ -47,7 +47,7 @@ const MenuGrid = () => {
                 <li key={index}>
                     
                     <button
-                        className="flex w-full text-left py-2 px-4 bg-gray-200 hover:bg-gray-300 focus:outline-none"
+                        className="flex w-full text-left py-2 px-4 bg-emerald-200 hover:bg-emerald-300 focus:outline-none"
                         onClick={() => togglemyRecords(index)}
                     >
                     <Image className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" 
@@ -62,7 +62,7 @@ const MenuGrid = () => {
                         <li key={subIndex}>
                         
                         <button
-                            className="w-full text-left py-2 px-4 bg-gray-100 hover:bg-gray-200 focus:outline-none"
+                            className="w-full text-left py-2 px-4 bg-emerald-100 hover:bg-emerald-200 focus:outline-none"
                             onClick={() => togglesubMenuRecords(subIndex)}
                         >
                             {subItem.name}
@@ -72,7 +72,7 @@ const MenuGrid = () => {
                             <ul className="pl-4 space-y-1">
                             {subItem.categories?.map((subSubItem, subSubIndex) => (
                                 <li key={subSubIndex} className="bg-gray-50">
-                                <button className="w-full text-left py-2 px-4 focus:outline-none">
+                                <button className="w-full text-left py-2 px-4 focus:outline-none hover:bg-emerald-100">
                                     {subSubItem}
                                 </button>
                                 </li>

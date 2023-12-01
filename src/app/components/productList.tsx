@@ -18,8 +18,9 @@ const ProductList = () => {
     return(
         <div>
             
-            <h1>Product List</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <h1 className="mb-3">Product List</h1>
+            
+            <div className="grid grid-cols-2 gap-4">
                 {
                     products.map((item,i)=>{
                         return(
