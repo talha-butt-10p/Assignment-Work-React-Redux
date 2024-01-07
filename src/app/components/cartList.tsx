@@ -1,7 +1,8 @@
 "use client"
 
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { deleteCart } from "../store/slices/cart";
+import { deleteCart, productDec, productInc } from "../store/slices/cart";
 
 const CartList = () => {
     const cart = useAppSelector((state)=>(state.cartArray));
@@ -14,7 +15,17 @@ const CartList = () => {
                         <div>Name: {val.name}</div>
                         <div>Colour: {val.colour}</div>
                         <div>Price: {val.price}</div>
-                        <div>Qty: {val.qty}</div>
+                        
+                        <div>Qty: 
+                            <button onClick={() => dispatch(productDec())} className="bg-black/80 text-white p-3 mt-3 rounded-md">
+                                        -
+                            </button>
+
+                            {val.qty}
+                            <button onClick={() => dispatch(productInc())} className="bg-black/80 text-white p-3 mt-3 rounded-md">
+                                        +
+                            </button>
+                        </div>
                         <div>
                             <button 
                                 onClick={()=>dispatch(deleteCart(val.name))} 

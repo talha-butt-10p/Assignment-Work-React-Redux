@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import  React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { addCart } from "../store/slices/cart";
 
@@ -33,6 +33,7 @@ const ProductList = () => {
                                 <button onClick={() => dispatch(addCart({ name: item.name, colour: item.colour, price: item.price, qty: item.qty}))} className="bg-black/80 text-white p-3 mt-3 rounded-md">
                                     Add to Cart
                                 </button>
+                                
                             </div>
                         )
                     })
