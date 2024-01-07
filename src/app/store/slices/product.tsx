@@ -8,9 +8,9 @@ interface ProductState {
 }
 
 const initialState:ProductState[] = [
-    {name:"shoes2", colour:"Blue", price:200, qty:1},
-    {name:"shoes1", colour:"Blue", price:200, qty:1},
-    {name:"shoes3", colour:"Blue", price:200, qty:1}]
+    {name:"Nike", colour:"Blue", price:320, qty:1},
+    {name:"Borjan", colour:"Green", price:230, qty:1},
+    {name:"Adidas", colour:"Yellow", price:790, qty:1}]
 
 const productSlice = createSlice({
     name:"product",

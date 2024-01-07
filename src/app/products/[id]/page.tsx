@@ -1,19 +1,38 @@
 "use client"
+
+import React from "react";
 import MenuGrid from 'Yes@<rj>/app/components/menuGrid';
-import { useGetProductByIdQuery } from '../../store/slices/productApi';
+import { useGetProductByIdQuery, useAddToCartMutation, useGetAllProductsQuery } from '../../store/slices/productApi';
 import Image from 'next/image';
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 
 const ProductDetailPage = () => {
     const {id} = useParams()
+
     const singleProduct = useGetProductByIdQuery(
         id,
         {
             skip: id===null     
         }
     );
-   
+
+    const [addToCart, { isLoading: isAddingToCart }] = useAddToCartMutation();
+
+    const pId = singleProduct.data?.id;
+    console.log("Single product Data: ", pId);
+    
+    
+    const handleAddToCart = async (pId:any) => {
+        try {
+          await addToCart({ pId });
+          // Optionally, you can handle success/failure or update UI
+        } catch (error) {
+          console.error('Error adding to cart:', error);
+        }
+      };
+
+      
     //console.log("Api Data", singleProduct);
 
   return (
@@ -35,6 +54,21 @@ const ProductDetailPage = () => {
                         <li>
                         <MenuGrid />
                         </li>
+                        {/* <li>
+                        <ul>
+                            {singleProduct.data.map((product:any) => (
+                            <li key={product.id}>
+                                <div>
+                                <h3>{product.name}</h3>
+                                <p>{product.description}</p>
+                                <button onClick={() => handleAddToCart(product.id)} disabled={isAddingToCart}>
+                                    {isAddingToCart ? 'Adding to Cart...' : 'Add to Cart'}
+                                </button>
+                                </div>
+                            </li>
+                            ))}
+                        </ul>
+                        </li> */}
                     </ul>
                 </div>
         </aside>
